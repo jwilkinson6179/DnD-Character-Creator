@@ -1,7 +1,7 @@
 package com.wilkinson.DnDCharGen.models;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -11,9 +11,10 @@ public class PlayerCharacter
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @NotNull
-    @Size(min=2, max=32, message = "Character names must be between 2 and 32 characters long")
+    @NotBlank
+    @Size(min = 3, max = 64, message = "Character name must be between 2 and 64 characters")
     private String name;
+
     private Integer strength;
     private Integer dexterity;
     private Integer constitution;
